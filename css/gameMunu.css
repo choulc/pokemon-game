@@ -1,0 +1,70 @@
+#myModal {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#modalMenu {
+    background-color: rgb(83, 83, 83);
+
+    border-radius: 15px;
+    height: 500px;
+}
+
+.modal-header {
+    border: 1px solid black;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-title {
+    color: white;
+    font-size: 40px;
+
+}
+
+.modal-body {
+    background-color: rgb(226, 215, 117);
+    border: 1px solid black;
+    border-radius: 0 0 15px 15px;
+}
+
+#reloadInMenu,
+#leaveGame,
+#continueInMenu,
+#controlBGM,
+#controlSound,
+#offBGM,
+#onBGM,
+#offSound,
+#onSound, #hintMode,
+#hintOn,#hintOff {
+    font-size: 40px;
+    color: black;
+}
+
+#reloadInMenu:hover,
+#leaveGame:hover,
+#continueInMenu:hover,
+#offBGM:hover,
+#onBGM:hover {
+    color: rgb(24, 6, 189);
+}
+
+#offBGM:focus,
+#onBGM:focus {
+    color: rgb(2, 32, 170);
+}
+
+#reloadInMenu:hover::before,
+#leaveGame:hover::before,
+#continueInMenu:hover::before {
+    content: url('../img/pikachu_running_42.gif');
+}
+
+#reloadInMenu:hover::after,
+#leaveGame:hover::after,
+#continueInMenu:hover::after {
+    content: url('../img/pikachu_running_42_m.gif');
+}
+
+input#volumeslider{
+	width: 200px;
+}

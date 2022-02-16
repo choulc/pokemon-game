@@ -1,0 +1,61 @@
+@keyframes animation {
+    100% {
+        background-position: 2000px 0px;
+    }
+}
+
+body {
+    background-color: rgb(48, 48, 48);
+    background-image: linear-gradient(rgba(100, 100, 100, 0.2), rgba(100, 100, 100, 0.2)), url('../img/game_background.png');
+    background-size: contain;
+    background-position: center;
+    animation: animation 100s linear infinite;
+}
+
+#logoPic {
+    /* background-image: url('img/pokemon\ match.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; */
+    height: 380px;
+}
+
+#logoPic img {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    animation-duration: 2.0s;
+}
+
+#aRule,
+#aStart {
+    font-size: 3rem;
+    text-decoration: none;
+    background: -webkit-linear-gradient(#eee, rgb(110, 110, 110));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#aRule:hover,
+#aStart:hover {
+    cursor: pointer;
+    background: -webkit-linear-gradient(rgb(119, 147, 240), rgb(73, 75, 172));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    width: 600px;
+}
+
+#aStart:hover::before,
+#aRule:hover::before {
+    content: url('../img/pikachu_running_42.gif');
+}
+
+#aStart:hover::after,
+#aRule:hover::after {
+    content: url('../img/pikachu_running_42_m.gif');
+}

@@ -1,0 +1,168 @@
+@font-face {
+    font-family: myPokemonFont;
+    src: url('../font/Pokemon\ Solid.ttf');
+}
+
+.container {
+    min-width: 720px;
+}
+
+body {
+    background-color: rgb(252, 248, 218);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../img/pikabackground_2.png');
+}
+
+#topDisplay {
+    background-color: rgb(212, 189, 53);
+    height: 72px;
+    border-radius: 24px 24px 0 0;
+}
+
+#divForGame {
+    background-color: rgb(71, 67, 87);
+    height: 550px;
+    background-image: url('../img/game_background.png');
+    background-size: cover;
+}
+
+#bottomMenu {
+    background-color: rgb(77, 75, 95);
+    height: 72px;
+    border-radius: 0 0 24px 24px;
+}
+
+#topDisplay,
+#divForGame,
+#bottomMenu {
+    -webkit-box-shadow: 4px 8px 35px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 4px 8px 35px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 8px 35px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+#levelSet,
+#timerForGame,
+#gradeSet,
+#settingButton {
+    height: 54px;
+}
+
+#levelSet,
+#gradeSet {
+    font-size: 24px;
+}
+
+#timerForGame {
+    font-size: 36px;
+    font-family: myPokemonFont;
+    background-color: rgb(241, 238, 190);
+    border: 1px solid rgb(236, 234, 71);
+    border-radius: 15px;
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+table,
+tr,
+td {
+    border: 2px solid rgb(172, 172, 172);
+}
+
+tr,
+td {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+}
+
+table {
+    background-color: rgba(80, 80, 80, 0.7);
+}
+
+
+#btnNextLevel,
+.btnTryAgain {
+    color: #212529;
+    background-color: rgb(241, 238, 190);
+    border-color: rgb(241, 238, 190);
+}
+
+#btnNextLevel:hover,
+.btnTryAgain:hover {
+    color: #212529;
+    background-color: rgb(221, 211, 67);
+    border-color: rgb(209, 181, 57);
+}
+
+#btnNextLevel:focus,
+#btnNextLevel.focus,
+.btnTryAgain:focus,
+.btnTryAgain.focus {
+    color: #212529;
+    background-color: rgb(221, 211, 67);
+    border-color: rgb(209, 181, 57);
+    box-shadow: 0 0 0 0.2rem rgba(235, 189, 53, 0.5);
+}
+
+#btnNextLevel:disabled,
+#btnNextLevel.disabled,
+.btnTryAgain:disabled,
+.btnTryAgain.disabled {
+    color: #575758;
+    background-color: rgb(180, 180, 180);
+    border-color: rgb(180, 180, 180);
+}
+
+#btnNextLevel:not(:disabled):not(.disabled):active,
+#btnNextLevel:not(:disabled):not(.disabled).active,
+.show>#btnNextLevel.dropdown-toggle,
+.btnTryAgain:not(:disabled):not(.disabled):active,
+.btnTryAgain:not(:disabled):not(.disabled).active,
+.show>.btnTryAgain.dropdown-toggle {
+    color: #212529;
+    background-color: rgb(209, 181, 57);
+    border-color: rgb(207, 177, 41);
+}
+
+#btnNextLevel:not(:disabled):not(.disabled):active:focus,
+#btnNextLevel:not(:disabled):not(.disabled).active:focus,
+.show>#btnNextLevel.dropdown-toggle:focus,
+.btnTryAgain:not(:disabled):not(.disabled):active:focus,
+.btnTryAgain:not(:disabled):not(.disabled).active:focus,
+.show>.btnTryAgain.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(235, 189, 53, 0.5);
+}
+
+table img:hover,
+#settingButton img {
+    cursor: pointer;
+}
+
+
+
+#popUpMsg img {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 180px;
+    margin-top: -90px;
+    /* half the height */
+    margin-left: -300px;
+    /* half the width */
+}
+
+#popUpMsg div {
+    position: absolute;
+    z-index: 1;
+    top: 65%;
+    left: 50%;
+    width: 600px;
+    height: 180px;
+    margin-top: -90px;
+    /* half the height */
+    margin-left: -300px;
+    /* half the width */
+}

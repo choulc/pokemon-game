@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" />
+    <title>Document</title>
+    <!-- link bootstrap.css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/loader.css">
+
+    <link rel="stylesheet" href="css/gamePlay.css">
+    <link rel="stylesheet" href="css/gameMunu.css">
+</head>
+
+<body>
+    <!-- 以下為換頁動畫 -->
+    <div class="loader loader--active">
+        <div class="loader__icon">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <path opacity="0.2" fill="#000"
+                    d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z">
+                </path>
+                <path fill="#000"
+                    d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0C22.32,8.481,24.301,9.057,26.013,10.047z">
+                </path>
+                <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20"
+                    to="360 20 20" dur="0.5s" repeatCount="indefinite"></animateTransform>
+            </svg>
+        </div>
+        <div class="loader__tile"></div>
+        <div class="loader__tile"></div>
+        <div class="loader__tile"></div>
+        <div class="loader__tile"></div>
+        <div class="loader__tile"></div>
+    </div>
+    <!-- 以上為換頁動畫 -->
+    <div class="container position-relative">
+        <div id="popUpMsg" class="">
+        </div>
+        <div id="topDisplay" class="row d-flex align-items-center mt-3">
+            <div id="levelSet" class="col-5 d-flex align-items-center justify-content-center">
+                目前關卡: 1</div>
+            <div id="timerForGame" class="col-2 d-flex align-self-center justify-content-center">
+            </div>
+            <div id="gradeSet" class="col-4 d-flex align-items-center justify-content-center">
+                分數: 0</div>
+            <div id="settingButton" class="col-1 d-flex align-items-center justify-content-center" data-toggle="modal"
+                data-target="#myModal" onclick="stopCountdown()"><img src="img/settings-24px.svg" alt=""></div>
+        </div>
+        <div id="divForGame" class="row d-flex align-items-center justify-content-center">
+            <div id="tableForGame" class="col-12" onDRAGSTART="window.event.returnValue=false"></div>
+        </div>
+        <div id="bottomMenu" class="row">
+            <div id="nextLevelButton" class="col-12 d-flex align-items-center justify-content-center text-center">
+                <button id="btnNextLevel" class="btn btn-lg disabled">下一關</button>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div id="modalMenu" class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header d-flex align-items-center justify-content-center">
+                        <h4 class="modal-title">遊戲選單</h4>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div id="controlBGM">背景音樂：</div>
+                            <button id="onBGM" class="btn" onclick="activeBGM()">ON</button>
+                            <button id="offBGM" class="btn" onclick="muteBGM()"> OFF</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <input id="volumeslider" type="range" min="0" max="100" value="0" step="1">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div id="controlSound">背景音效：</div>
+                            <button id="onSound" class="btn" onclick="activeSound()">ON</button>
+                            <button id="offSound" class="btn" onclick="muteSound()"> OFF</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div id="hintMode">提示模式：</div>
+                            <button id="hintOn" class="btn" onclick="hintModeOn()">ON</button>
+                            <button id="hintOff" class="btn" onclick="hintModeOff()"> OFF</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <button id="reloadInMenu" class="btn" onclick="gameReload()">重新開始</button>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <button type="button" id="continueInMenu" class="btn" data-dismiss="modal"
+                                onclick="keepCountdown()">繼續遊戲</button>
+                        </div>
+                        <audio id="gameBGM" src="sound/gameplayBGM.mp3" loop></audio>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <button id="leaveGame" class="btn" data-dismiss="modal"
+                                onclick="playAudio('sound/SFX_SLOTS_NEW_SPIN.mp3')">回主選單</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/gamePlay.js"></script>
+
+    <!-- bootstrap setting -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="js/loader_game.js"></script>
+
+</body>
+
+</html>
